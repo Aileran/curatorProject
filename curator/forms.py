@@ -1,5 +1,5 @@
 from django import forms
-from .models import Book
+from .models import *
 
 
 class BookForm(forms.ModelForm):
@@ -12,3 +12,15 @@ class BookForm(forms.ModelForm):
           #  'author' = forms.TextInput(attrs={'class': 'form-control'}),
 
        # }
+
+
+class MovieForm(forms.ModelForm):
+    class Meta:
+        model = Movie
+        fields = '__all__'
+
+
+class AlbumForm(forms.ModelForm):
+    class Meta:
+        model = Album
+        fields = '__all__'
