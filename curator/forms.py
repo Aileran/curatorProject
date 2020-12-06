@@ -7,12 +7,6 @@ class BookForm(forms.ModelForm):
         model = Book
         fields = '__all__'
 
-        #widgets = {
-          #  'title' = forms.TextInput(attrs={'class': 'form-control'}),
-          #  'author' = forms.TextInput(attrs={'class': 'form-control'}),
-
-       # }
-
 
 class MovieForm(forms.ModelForm):
     class Meta:
