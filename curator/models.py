@@ -25,7 +25,6 @@ class Movie(models.Model):
 
 class Album(models.Model):
     title = models.CharField(max_length=60)
-    comment = models.TextField()
     artist = models.CharField(max_length=60)
     label = models.CharField(max_length=60)
     genre = models.CharField(max_length=60)
