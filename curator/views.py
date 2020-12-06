@@ -63,10 +63,6 @@ def logout_view(request):
     return redirect('index')
 
 
-def view_collections(request):
-    return render(request, 'curator/index.html')
-
-
 def book(request):
     return render(request, 'curator/collection.html')
 

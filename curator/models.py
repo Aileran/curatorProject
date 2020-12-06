@@ -12,7 +12,7 @@ class Book(models.Model):
     comment = models.TextField()
 
     def __str__(self):
-        self.title
+        return self.title
 
 
 class Movie(models.Model):
@@ -26,7 +26,7 @@ class Movie(models.Model):
     comment = models.TextField()
 
     def __str__(self):
-        self.title
+        return self.title
 
 
 class Album(models.Model):
@@ -40,4 +40,4 @@ class Album(models.Model):
     comment = models.TextField()
 
     def __str__(self):
-        self.title
+        return self.title
