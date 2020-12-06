@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
+
 from .forms import UserRegistrationForm
 # from django.contrib import messages
 
@@ -11,7 +12,7 @@ from .forms import UserRegistrationForm
 @login_required(login_url='login')
 def index(request):
     # Render the index page
-    return render(request, '')
+    return render(request, 'curator/base.html')
 
 
 def register_view(request):
