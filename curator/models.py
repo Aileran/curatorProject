@@ -10,6 +10,7 @@ class Book(models.Model):
     date_added = models.DateField(auto_now_add=True)
     #rating
     comment = models.TextField()
+    co = models.IntegerChoices()
 
 
 class Movie(models.Model):
