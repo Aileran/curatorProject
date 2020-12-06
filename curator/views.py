@@ -61,3 +61,27 @@ def logout_view(request):
     logout(request)
     # redirect the user to index page
     return redirect('index')
+
+
+def view_collections(request):
+    return render(request, 'curator/index.html')
+
+
+def book(request):
+    return render(request, 'curator/collection.html')
+
+
+def movie(request):
+    return render(request, 'curator/collection.html')
+
+
+def album(request):
+    return render(request, 'curator/collection.html')
+
+
+def update_collection(request):
+    return render(request, 'curator/update.html')
+
+
+def delete_collection(request):
+    return render(request, 'curator/delete.html')
