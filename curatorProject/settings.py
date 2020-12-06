@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'curator.apps.CuratorConfig',
     'crispy_forms',
+    'curator'
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
