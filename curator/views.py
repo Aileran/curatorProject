@@ -12,7 +12,7 @@ from .forms import UserRegistrationForm
 @login_required(login_url='login')
 def index(request):
     # Render the index page
-    return render(request, 'curator/base.html')
+    return render(request, 'curator/index.html')
 
 
 def register_view(request):
