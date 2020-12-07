@@ -10,10 +10,16 @@
         <h1 class="display-4 text-capitalize">Hello, {{  user.username}}!</h1>
         <p class="lead">Welcome to your Movie Collection!.</p>
         <hr class="my-4">
-        <h1>These are all the movies you've added.</h1>
+        <p>These are all the movies you've added.</p>
         {% for Movie in Movies %}
-            <h4>{{ Movie.title}}</h4>
-            <br>
+            <p>
+                {{ Movie.title}}
+                {{ Movie.year}}
+                {{ Movie.director}}
+                {{ Movie.studio}}
+                {{ Movie.genre}}
+            </p>
+
         {% endfor %}
         <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
     </div>
