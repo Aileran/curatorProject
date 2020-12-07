@@ -3,13 +3,13 @@ from django.db import models
 #each is a model of one type of media: book, movie, or album
 class Book(models.Model):
     title = models.CharField(max_length=60)
-    author = models.CharField(max_length=60)
-    publisher = models.CharField(max_length=60)
-    genre = models.CharField(max_length=60)
-    year = models.DateField()
+    author = models.CharField(max_length=60, blank=True)
+    publisher = models.CharField(max_length=60, blank=True)
+    genre = models.CharField(max_length=60, blank=True)
+    year = models.DateField(blank=True)
     #date_added = models.DateField(auto_now_add=True)
-    #rating = models.IntegerChoices
-    #comment = models.TextField()
+    #rating = models.IntegerField(blank=True, choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+    comment = models.TextField(blank=True)
 
     def __str__(self):
         return self.title
@@ -17,13 +17,13 @@ class Book(models.Model):
 
 class Movie(models.Model):
     title = models.CharField(max_length=60)
-    director = models.CharField(max_length=60)
-    studio = models.CharField(max_length=60)
-    genre = models.CharField(max_length=60)
-    year = models.DateField()
+    director = models.CharField(max_length=60, blank=True)
+    studio = models.CharField(max_length=60, blank=True)
+    genre = models.CharField(max_length=60, blank=True)
+    year = models.DateField(blank=True)
     #date_added = models.DateField(auto_now_add=True)
-    #rating
-    #comment = models.TextField()
+    #rating = models.IntegerField(blank=True, choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+    comment = models.TextField(blank=True)
 
     def __str__(self):
         return self.title
@@ -31,13 +31,13 @@ class Movie(models.Model):
 
 class Album(models.Model):
     title = models.CharField(max_length=60)
-    artist = models.CharField(max_length=60)
-    label = models.CharField(max_length=60)
-    genre = models.CharField(max_length=60)
-    year = models.DateField()
+    artist = models.CharField(max_length=60, blank=True)
+    label = models.CharField(max_length=60, blank=True)
+    genre = models.CharField(max_length=60, blank=True)
+    year = models.DateField(blank=True)
     #date_added = models.DateField(auto_now_add=True)
-    #rating
-    #comment = models.TextField()
+    #rating = models.IntegerField(blank=True, choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+    comment = models.TextField(blank=True)
 
     def __str__(self):
         return self.title
