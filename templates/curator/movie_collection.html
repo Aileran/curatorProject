@@ -12,8 +12,14 @@
         <hr class="my-4">
         <p>These are all the movies you've added.</p>
         {% for Movie in Movies %}
-            {{ Movie.title}}
-            <br>
+            <p>
+                {{ Movie.title}}
+                {{ Movie.year}}
+                {{ Movie.director}}
+                {{ Movie.studio}}
+                {{ Movie.genre}}
+            </p>
+
         {% endfor %}
         <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
     </div>
