@@ -65,15 +65,15 @@ def logout_view(request):
 
 
 def book(request):
-    return render(request, 'curator/collection.html')
+    return render(request, 'curator/book_collection.html')
 
 
 def movie(request):
-    return render(request, 'curator/collection.html')
+    return render(request, 'curator/movie_collection.html')
 
 
 def album(request):
-    return render(request, 'curator/collection.html')
+    return render(request, 'curator/album_collection.html')
 
 
 def delete_collection(request):

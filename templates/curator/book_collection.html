@@ -1,0 +1,17 @@
+{% extends 'curator/base.html' %}
+
+{% block title %}
+    Book Collection
+{% endblock %}
+
+{% block body %}
+
+    <div class="jumbotron">
+        <h1 class="display-4 text-capitalize">Hello, {{  user.username}}!</h1>
+        <p class="lead">Welcome to your Book Collection!.</p>
+        <hr class="my-4">
+        <p>These are all the book you've added.</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </div>
+
+{% endblock %}
