@@ -85,10 +85,11 @@ def update_book(request):
         form = BookForm(request.POST)
         if form.is_valid():
             form.save()
-            redirect('book')
-    form = BookForm()
-    context = {'form': form}
-    return render(request, 'curator/update.html', context)
+            return redirect('book')
+    else:
+        form = BookForm()
+        context = {'form': form}
+        return render(request, 'curator/update.html', context)
 
 
 def update_movie(request):
@@ -96,10 +97,11 @@ def update_movie(request):
         form = MovieForm(request.POST)
         if form.is_valid():
             form.save()
-            redirect('movie')
-    form = MovieForm()
-    context = {'form': form}
-    return render(request, 'curator/update.html', context)
+            return redirect('movie')
+    else:
+        form = MovieForm()
+        context = {'form': form}
+        return render(request, 'curator/update.html', context)
 
 
 def update_album(request):
@@ -107,7 +109,8 @@ def update_album(request):
         form = AlbumForm(request.POST)
         if form.is_valid():
             form.save()
-            redirect('album')
-    form = AlbumForm()
-    context = {'form': form}
-    return render(request, 'curator/update.html', context)
+            return redirect('album')
+    else:
+        form = AlbumForm()
+        context = {'form': form}
+        return render(request, 'curator/update.html', context)
