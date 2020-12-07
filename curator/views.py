@@ -81,18 +81,33 @@ def delete_collection(request):
 
 
 def update_book(request):
+    if request.method == 'POST':
+        form = BookForm(request.POST)
+        if form.is_valid():
+            form.save()
+            redirect('book')
     form = BookForm()
     context = {'form': form}
     return render(request, 'curator/update.html', context)
 
 
 def update_movie(request):
+    if request.method == 'POST':
+        form = MovieForm(request.POST)
+        if form.is_valid():
+            form.save()
+            redirect('movie')
     form = MovieForm()
     context = {'form': form}
     return render(request, 'curator/update.html', context)
 
 
 def update_album(request):
+    if request.method == 'POST':
+        form = AlbumForm(request.POST)
+        if form.is_valid():
+            form.save()
+            redirect('album')
     form = AlbumForm()
     context = {'form': form}
     return render(request, 'curator/update.html', context)
