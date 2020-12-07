@@ -65,6 +65,7 @@ def logout_view(request):
 
 
 def book(request):
+
     return render(request, 'curator/book_collection.html')
 
 
