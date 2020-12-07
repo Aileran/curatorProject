@@ -69,21 +69,21 @@ def logout_view(request):
 
 def book(request):
     user = User.objects.get(username=request.user.username)
-    user_books = Book.objects.filter(name=user)
+    user_books = Book.objects.filter(owner=user)
     return render(request, 'curator/book_collection.html', {"Books": user_books})
     # return render(request, 'curator/book_collection.html')
 
 
 def movie(request):
     user = User.objects.get(username=request.user.username)
-    user_movies = Movie.objects.filter(name=user)
+    user_movies = Movie.objects.filter(owner=user)
     return render(request, 'curator/movie_collection.html', {"Movies": user_movies})
     # return render(request, 'curator/movie_collection.html')
 
 
 def album(request):
     user = User.objects.get(username=request.user.username)
-    user_albums = Album.objects.filter(name=user)
+    user_albums = Album.objects.filter(owner=user)
     return render(request, 'curator/album_collection.html', {"Albums": user_albums})
     # return render(request, 'curator/album_collection.html')
 
