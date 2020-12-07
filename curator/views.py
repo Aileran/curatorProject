@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
+from .forms import *
 
 from .forms import UserRegistrationForm
 # from django.contrib import messages
@@ -64,6 +65,8 @@ def logout_view(request):
 
 
 def book(request):
+    #form = BookForm()
+    #context = {'form': form}
     return render(request, 'curator/collection.html')
 
 
@@ -81,3 +84,9 @@ def update_collection(request):
 
 def delete_collection(request):
     return render(request, 'curator/delete.html')
+
+
+def update_book(request):
+    form = BookForm()
+    context = {'form': form}
+    return render(request, 'curator/update.html', context)
