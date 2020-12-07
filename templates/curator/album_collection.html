@@ -11,6 +11,10 @@
         <p class="lead">Welcome to your Album Collection!.</p>
         <hr class="my-4">
         <p>These are all the albums you've added.</p>
+        {% for Album in Albums %}
+            {{ Album.title}}
+            <br>
+        {% endfor %}
         <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
     </div>
 

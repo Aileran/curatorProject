@@ -3,6 +3,8 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import AlbumForm, BookForm, MovieForm
+from .models import Book, Movie, Album
+from django.contrib.auth.models import User
 
 from .forms import UserRegistrationForm
 # from django.contrib import messages
@@ -65,15 +67,25 @@ def logout_view(request):
 
 
 def book(request):
-    return render(request, 'curator/book_collection.html')
+    user = User.objects.get(username=request.user.username)
+    user_books = Book.objects.filter(owner=user)
+    return render(request, 'curator/book_collection.html', {"profile": user, "Books": user_books})
+    # return render(request, 'curator/book_collection.html')
 
 
 def movie(request):
-    return render(request, 'curator/movie_collection.html')
+    user = User.objects.get(username=request.user.username)
+    user_movies = Movie.objects.filter(owner=user)
+    return render(request, 'curator/movie_collection.html', {"profile": user, "Movies": user_movies})
+    # return render(request, 'curator/movie_collection.html')
+
 
 
 def album(request):
-    return render(request, 'curator/album_collection.html')
+    user = User.objects.get(username=request.user.username)
+    user_albums = Album.objects.filter(owner=user)
+    return render(request, 'curator/album_collection.html', {"profile": user, "Movies": user_albums})
+    # return render(request, 'curator/album_collection.html')
 
 
 def delete_collection(request):

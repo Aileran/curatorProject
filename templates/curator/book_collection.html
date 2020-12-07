@@ -11,6 +11,10 @@
         <p class="lead">Welcome to your Book Collection!.</p>
         <hr class="my-4">
         <p>These are all the books you've added.</p>
+        {% for Book in Books %}
+            {{ Book.title}}
+            <br>
+        {% endfor %}
         <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
     </div>
 

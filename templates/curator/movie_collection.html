@@ -11,6 +11,10 @@
         <p class="lead">Welcome to your Movie Collection!.</p>
         <hr class="my-4">
         <p>These are all the movies you've added.</p>
+        {% for Movie in Movies %}
+            {{ Movie.title}}
+            <br>
+        {% endfor %}
         <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
     </div>
 
