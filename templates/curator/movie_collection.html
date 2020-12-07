@@ -12,12 +12,11 @@
         <hr class="my-4">
         <p>These are all the movies you've added.</p>
         {% for Movie in Movies %}
-            <p>
-                {{ Movie.title}}
-                {{ Movie.year}}
-                {{ Movie.director}}
-                {{ Movie.studio}}
-                {{ Movie.genre}}
+            <p>Title: {{ Movie.title}}</p>
+            <p>Date you added:{{ Movie.year}}
+            <p>{{ Movie.director}}
+            <p>{{ Movie.studio}}
+            <p>{{ Movie.genre}}
             </p>
 
         {% endfor %}
