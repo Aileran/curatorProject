@@ -13,8 +13,8 @@
         <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
         <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
     </div>
-    <button type="button" class="btn btn-primary btn-lg btn-block">Start An Album Collection</button>
-    <button type="button" class="btn btn-primary btn-lg btn-block">Start A Book Collection</button>
-    <button type="button" class="btn btn-primary btn-lg btn-block">Start A Movie Collection</button>
+    <a class="btn btn-primary btn-lg btn-block" href="{% url 'update_album' %}">Start An Album Collection</a>
+    <a class="btn btn-primary btn-lg btn-block" href="{% url 'update_book' %}">Start A Book Collection</a>
+    <a class="btn btn-primary btn-lg btn-block" href="{% url 'update_movie' %}">Start A Movie Collection</a>
 
 {% endblock %}
