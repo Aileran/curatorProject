@@ -12,4 +12,6 @@ urlpatterns = [
     path('album/', views.album, name="album"),
     path('update/', views.update_collection, name="update"),
     path('delete/', views.delete_collection, name="delete"),
+    path('update_book', views.update_book, name="update_book")
+
 ]

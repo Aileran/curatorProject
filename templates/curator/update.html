@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'curator/base.html' %}
+{% block title %}
+    <title>Update Entry</title>
+{% endblock %}
 
-    <h1> Update </h1>
-
-</body>
-</html>
+{% block body %}
+    <h1>Update your entry</h1>
+    {{ form }}
+{% endblock %}
