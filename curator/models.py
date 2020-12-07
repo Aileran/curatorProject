@@ -6,7 +6,7 @@ class Book(models.Model):
     author = models.CharField(max_length=60)
     publisher = models.CharField(max_length=60)
     genre = models.CharField(max_length=60)
-    year = models.IntegerField(max_length=4)
+    year = models.DateField()
     date_added = models.DateField(auto_now_add=True)
     #rating = models.IntegerChoices
     comment = models.TextField()
@@ -20,7 +20,7 @@ class Movie(models.Model):
     director = models.CharField(max_length=60)
     studio = models.CharField(max_length=60)
     genre = models.CharField(max_length=60)
-    year = models.IntegerField(max_length=4)
+    year = models.DateField()
     date_added = models.DateField(auto_now_add=True)
     #rating
     comment = models.TextField()
@@ -34,7 +34,7 @@ class Album(models.Model):
     artist = models.CharField(max_length=60)
     label = models.CharField(max_length=60)
     genre = models.CharField(max_length=60)
-    year = models.IntegerField(max_length=4)
+    year = models.DateField()
     date_added = models.DateField(auto_now_add=True)
     #rating
     comment = models.TextField()
