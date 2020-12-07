@@ -12,13 +12,11 @@
         <hr class="my-4">
         <p>These are all the books you've added.</p>
         {% for Book in Books %}
-            <p>
-                {{Book.title}}
-                {{Book.year}}
-                {{Book.director}}
-                {{Book.studio}}
-                {{Book.genre}}
-            </p>
+            <p>Title: {{Book.title}}</p>
+            <p>Date you added: {{Book.year}}</p>
+            <p>{{Book.director}}</p>
+            <p>{{Book.studio}}</p>
+            <p>{{Book.genre}}</p>
         {% endfor %}
         <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
     </div>
