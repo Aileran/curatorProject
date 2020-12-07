@@ -11,7 +11,7 @@ class Book(models.Model):
     #date_added = models.DateField(auto_now_add=True)
     #rating = models.IntegerField(blank=True, choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
     comment = models.TextField(blank=True)
-    #owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    owner = models.CharField(max_length=150, blank=True)
 
     def __str__(self):
         return self.title
@@ -41,7 +41,7 @@ class Album(models.Model):
     #date_added = models.DateField(auto_now_add=True)
     #rating = models.IntegerField(blank=True, choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
     comment = models.TextField(blank=True)
-    #owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    owner = models.CharField(max_length=150, blank=True)
 
     def __str__(self):
         return self.title
