@@ -85,7 +85,7 @@ def update_book(request):
         form = BookForm(request.POST)
         if form.is_valid():
             form.save()
-            redirect('book')
+            return redirect('book')
     else:
         form = BookForm()
         context = {'form': form}
@@ -97,7 +97,7 @@ def update_movie(request):
         form = MovieForm(request.POST)
         if form.is_valid():
             form.save()
-            redirect('movie')
+            return redirect('movie')
     else:
         form = MovieForm()
         context = {'form': form}
@@ -109,7 +109,7 @@ def update_album(request):
         form = AlbumForm(request.POST)
         if form.is_valid():
             form.save()
-            redirect('album')
+            return redirect('album')
     else:
         form = AlbumForm()
         context = {'form': form}
