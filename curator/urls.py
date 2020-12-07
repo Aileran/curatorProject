@@ -10,8 +10,9 @@ urlpatterns = [
     path('book/', views.book, name="book"),
     path('movie/', views.movie, name="movie"),
     path('album/', views.album, name="album"),
-    path('update/', views.update_collection, name="update"),
     path('delete/', views.delete_collection, name="delete"),
-    path('update_book', views.update_book, name="update_book")
+    path('update_book', views.update_book, name="update_book"),
+    path('update_movie', views.update_movie, name="update_movie"),
+    path('update_album', views.update_album, name="update_album")
 
 ]

@@ -65,8 +65,6 @@ def logout_view(request):
 
 
 def book(request):
-    #form = BookForm()
-    #context = {'form': form}
     return render(request, 'curator/collection.html')
 
 
@@ -78,15 +76,23 @@ def album(request):
     return render(request, 'curator/collection.html')
 
 
-def update_collection(request):
-    return render(request, 'curator/update.html')
-
-
 def delete_collection(request):
     return render(request, 'curator/delete.html')
 
 
 def update_book(request):
     form = BookForm()
+    context = {'form': form}
+    return render(request, 'curator/update.html', context)
+
+
+def update_movie(request):
+    form = MovieForm()
+    context = {'form': form}
+    return render(request, 'curator/update.html', context)
+
+
+def update_album(request):
+    form = AlbumForm()
     context = {'form': form}
     return render(request, 'curator/update.html', context)
