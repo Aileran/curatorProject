@@ -86,11 +86,7 @@ def album(request):
     # return render(request, 'curator/album_collection.html')
 
 
-def delete_collection(request):
-    return render(request, 'curator/delete.html')
-
-
-def update_book(request):
+def new_book(request):
     if request.method == 'POST':
         form = BookForm(request.POST)
         if form.is_valid():
@@ -99,10 +95,10 @@ def update_book(request):
     else:
         form = BookForm()
         context = {'form': form}
-        return render(request, 'curator/update.html', context)
+        return render(request, 'curator/update_book.html', context)
 
 
-def update_movie(request):
+def new_movie(request):
     if request.method == 'POST':
         form = MovieForm(request.POST)
         if form.is_valid():
@@ -111,10 +107,10 @@ def update_movie(request):
     else:
         form = MovieForm()
         context = {'form': form}
-        return render(request, 'curator/update.html', context)
+        return render(request, 'curator/update_movie.html', context)
 
 
-def update_album(request):
+def new_album(request):
     if request.method == 'POST':
         form = AlbumForm(request.POST)
         if form.is_valid():
@@ -123,13 +119,27 @@ def update_album(request):
     else:
         form = AlbumForm()
         context = {'form': form}
-        return render(request, 'curator/update.html', context)
+        return render(request, 'curator/update_album.html', context)
+
 
 def add_movie(request):
     if request.method == "POST":
         #do something with the entered task
-        movie = request.POST.get('entry')
-        Movie.objects.create(title=movie)
+        title = request.POST.get('entry')
+        user = User.objects.get(username=request.user.username)
+        Movie.objects.create(title=title, owner=user)
         return redirect('movie')
     else:
         return render(request, 'curator/index.html')
+
+
+def delete_book(request):
+    return render(request, 'curator/delete_book.html')
+
+
+def delete_movie(request):
+    return render(request, 'curator/delete_movie.html')
+
+
+def delete_album(request):
+    return render(request, 'curator/delete_album.html')

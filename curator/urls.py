@@ -10,8 +10,10 @@ urlpatterns = [
     path('book/', views.book, name='book'),
     path('movie/', views.movie, name='movie'),
     path('album/', views.album, name='album'),
-    path('delete/', views.delete_collection, name='delete'),
-    path('update_book/', views.update_book, name='update_book'),
-    path('update_movie/', views.update_movie, name='update_movie'),
-    path('update_album/', views.update_album, name='update_album')
+    path('book/delete_book/', views.delete_book, name='delete_book'),
+    path('book/delete_movie/', views.delete_movie, name='delete_movie'),
+    path('book/delete_album/', views.delete_album, name='delete_album'),
+    path('book/new_book/', views.new_book, name='new_book'),
+    path('movie/new_movie/', views.new_movie, name='new_movie'),
+    path('album/new_album/', views.new_album, name='new_album')
 ]
