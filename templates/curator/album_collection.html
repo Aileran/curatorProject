@@ -17,6 +17,8 @@
              <p>Artist: {{Album.artist}}</p>
              <p>Label: {{Album.label}}</p>
              <p>Genre: {{Album.genre}}</p>
+                <a href="{% url 'update_album' Album.id %}"> Update</a>
+                <a href="{% url 'delete_album' Album.id %}"> Delete</a>
              <hr>
         {% endfor %}
         <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>

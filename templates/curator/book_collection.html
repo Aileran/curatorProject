@@ -17,6 +17,8 @@
             <p>Author: {{Book.author}}</p>
             <p>Publisher: {{Book.publisher}}</p>
             <p>Genre: {{Book.genre}}</p>
+                <a href="{% url 'update_book' Book.id %}"> Update</a>
+                <a href="{% url 'delete_book' Book.id %}"> Delete</a>
             <hr>
         {% endfor %}
         <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>

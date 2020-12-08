@@ -148,13 +148,55 @@ def delete_album(request):
     return render(request, 'curator/delete_album.html')
 
 
-def update_book(request):
-    return None
+def update_book(request, id):
+    # Get the product based on its id
+    book = Book.objects.get(id=id)
+    # populate a form instance with data from the data on the database
+    # instance=product allows to update the record rather than creating a new record when
+    # save method is called
+    form = BookForm(request.POST or None, instance=book)
+    # check whether it's valid:
+    if form.is_valid():
+        # update the record in the db
+        form.save()
+        # after updating redirect to view_product page
+        return redirect('book')
+    # if the request does not have post data, render the page with the form containing the
+    # product's info
+    return render(request, 'curator/update_book.html', {'form': form})
 
 
-def update_movie(request):
-    return None
+def update_movie(request, id):
+    # Get the product based on its id
+    movie = Movie.objects.get(id=id)
+    # populate a form instance with data from the data on the database
+    # instance=product allows to update the record rather than creating a new record when
+    # save method is called
+    form = MovieForm(request.POST or None, instance=movie)
+    # check whether it's valid:
+    if form.is_valid():
+        # update the record in the db
+        form.save()
+        # after updating redirect to view_product page
+        return redirect('movie')
+    # if the request does not have post data, render the page with the form containing the
+    # product's info
+    return render(request, 'curator/update_movie.html', {'form': form})
 
 
-def update_album(request):
-    return None
+def update_album(request, id):
+    # Get the product based on its id
+    album = Album.objects.get(id=id)
+    # populate a form instance with data from the data on the database
+    # instance=product allows to update the record rather than creating a new record when
+    # save method is called
+    form = AlbumForm(request.POST or None, instance=album)
+    # check whether it's valid:
+    if form.is_valid():
+        # update the record in the db
+        form.save()
+        # after updating redirect to view_product page
+        return redirect('album')
+    # if the request does not have post data, render the page with the form containing the
+    # product's info
+    return render(request, 'curator/update_album.html', {'form': form})
