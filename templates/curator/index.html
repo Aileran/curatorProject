@@ -14,10 +14,22 @@
         <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
     </div>
     <a class="btn btn-primary btn-lg btn-block" href="{% url 'update_album' %}">Start An Album Collection</a>
-    <img class="img-fluid" alt="book" src={% static 'images/album.jpg' %} >
+    <a href="{% url 'update_album' %}">
+        <img class="img-fluid" alt="book" src={% static 'images/album.jpg' %} >
+    </a>
+
     <a class="btn btn-primary btn-lg btn-block" href="{% url 'update_book' %}">Start A Book Collection</a>
-    <img class="img-fluid" alt="book" src={% static 'images/book.jpg' %} >
+    <a href="{% url 'update_album' %}">
+        <img class="img-fluid" alt="book" src={% static 'images/book.jpg' %} >
+    </a>
+
     <a class="btn btn-primary btn-lg btn-block" href="{% url 'update_movie' %}">Start A Movie Collection</a>
-    <img class="img-fluid" alt="book" src={% static 'images/movie.jpg' %} >
+    <a href="{% url 'update_movie' %}">
+        <img class="img-fluid" alt="book" src={% static 'images/movie.jpg' %} >
+    </a>
+
+
+
+
 
 {% endblock %}
