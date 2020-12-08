@@ -6,10 +6,11 @@
 
 {% block body %}
     <h1>Enter Your Album</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <input type="submit" value="Enter">
-    </form>
-
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <input type="submit" value="Enter">
+        </form>
+    </div>
 {% endblock %}

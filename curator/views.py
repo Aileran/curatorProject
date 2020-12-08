@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import AlbumForm, BookForm, MovieForm
 from .models import Book, Movie, Album
 from django.contrib.auth.models import User
-from .forms import UserRegistrationForm
+# from .forms import UserRegistrationForm
 # from django.contrib import messages
 
 
@@ -69,21 +69,18 @@ def book(request):
     user = User.objects.get(username=request.user.username)
     user_books = Book.objects.filter(owner=user)
     return render(request, 'curator/book_collection.html', {"Books": user_books})
-    # return render(request, 'curator/book_collection.html')
 
 
 def movie(request):
     user = User.objects.get(username=request.user.username)
     user_movies = Movie.objects.filter(owner=user)
     return render(request, 'curator/movie_collection.html', {"Movies": user_movies})
-    # return render(request, 'curator/movie_collection.html')
 
 
 def album(request):
     user = User.objects.get(username=request.user.username)
     user_albums = Album.objects.filter(owner=user)
     return render(request, 'curator/album_collection.html', {"Albums": user_albums})
-    # return render(request, 'curator/album_collection.html')
 
 
 def new_book(request):
@@ -103,7 +100,8 @@ def new_book(request):
 def new_movie(request):
     if request.method == 'POST':
         form = MovieForm(request.POST)
-        if form.is_valid(): #if valid, save form, update new media's "owner" field with username, save to db
+        # if valid, save form, update new media's "owner" field with username, save to db
+        if form.is_valid():
             media = form.save()
             media.owner = request.user.username
             media.save()
@@ -126,18 +124,6 @@ def new_album(request):
         form = AlbumForm()
         context = {'form': form}
         return render(request, 'curator/update_album.html', context)
-
-
-#experimental
-def add_movie(request):
-    if request.method == "POST":
-        #do something with the entered task
-        # not sure if 'entry' is correct for our code here, but haven't tested yet
-        title = request.POST.get('entry')
-        Movie.objects.create(title=title, owner=request.user.username)
-        return redirect('movie')
-    else:
-        return render(request, 'curator/index.html')
 
 
 def delete_book(request, id):
@@ -228,3 +214,15 @@ def update_album(request, id):
     # if the request does not have post data, render the page with the form containing the
     # product's info
     return render(request, 'curator/update_album.html', {'form': form})
+
+
+# experimental
+def add_movie(request):
+    if request.method == "POST":
+        # do something with the entered task
+        # not sure if 'entry' is correct for our code here, but haven't tested yet
+        title = request.POST.get('entry')
+        Movie.objects.create(title=title, owner=request.user.username)
+        return redirect('movie')
+    else:
+        return redirect('movie')
