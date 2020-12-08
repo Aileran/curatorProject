@@ -5,8 +5,6 @@ from django.contrib.auth.decorators import login_required
 from .forms import AlbumForm, BookForm, MovieForm
 from .models import Book, Movie, Album
 from django.contrib.auth.models import User
-
-
 from .forms import UserRegistrationForm
 # from django.contrib import messages
 

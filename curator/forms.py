@@ -1,5 +1,5 @@
 from django import forms
-from .models import *
+from .models import Book, Movie, Album
 ####USER PAGE VVVVV
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
