@@ -9,19 +9,19 @@ from django.contrib.auth.models import User
 class BookForm(forms.ModelForm):
     class Meta:
         model = Book
-        fields = '__all__'
+        fields = ('title', 'author', 'publisher', 'genre', 'comment')
 
 #create form for movie collection
 class MovieForm(forms.ModelForm):
     class Meta:
         model = Movie
-        fields = '__all__'
+        fields = ('title', 'director', 'studio', 'genre', 'comment')
 
 #create form for album collection
 class AlbumForm(forms.ModelForm):
     class Meta:
         model = Album
-        fields = '__all__'
+        fields = ('title', 'artist', 'label', 'genre', 'comment')
 
 
         #####################USER PAGE   VVVVVVVVVVVVVV

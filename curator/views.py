@@ -101,8 +101,9 @@ def new_book(request):
 def new_movie(request):
     if request.method == 'POST':
         form = MovieForm(request.POST)
-        if form.is_valid():
-            form.save()
+        if form.is_valid(): #if valid, save form, update new Movie's "owner" field with username
+            new = form.save()
+            Movie.objects.get(new).update(owner=request.user.username)
             return redirect('movie')
     else:
         form = MovieForm()
@@ -125,7 +126,7 @@ def new_album(request):
 def add_movie(request):
     if request.method == "POST":
         #do something with the entered task
-        title = request.POST.get('entry')
+        title = request.POST.get('entry')#not sure if entry is correct for our code here
         user = User.objects.get(username=request.user.username)
         Movie.objects.create(title=title, owner=user)
         return redirect('movie')
