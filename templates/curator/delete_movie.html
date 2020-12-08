@@ -2,8 +2,16 @@
 
 {% block title %}
 
+    <title>
+    Delete
+    </title>
+
 {% endblock %}
 
 {% block body %}
-
+    <form action="{% url 'delete_movie' movie.id %}" method="post">
+        {% csrf_token %}
+        <h3>Are you sure that you want to delete "{{ movie.title }}"?</h3>
+        <input type="submit" value="Delete">
+    </form>
 {% endblock %}

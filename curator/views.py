@@ -132,35 +132,57 @@ def new_album(request):
 def add_movie(request):
     if request.method == "POST":
         #do something with the entered task
-        title = request.POST.get('entry')#not sure if entry is correct for our code here
+        # not sure if 'entry' is correct for our code here, but haven't tested yet
+        title = request.POST.get('entry')
         Movie.objects.create(title=title, owner=request.user.username)
         return redirect('movie')
     else:
         return render(request, 'curator/index.html')
 
 
-#to be written
-def delete_book(request):
-    return render(request, 'curator/delete_book.html')
+def delete_book(request, id):
+    # Get the product based on its id
+    media = Book.objects.get(id=id)
+    # if this is a POST request, we need to delete the form data
+    if request.method == 'POST':
+        media.delete()
+        # after deleting redirect to view_product page
+        return redirect('book')
+    # if the request is not post, render the page with the product's info
+    return render(request, 'curator/delete_book.html', {'book': media})
 
 
-# to be written
-def delete_movie(request):
-    return render(request, 'curator/delete_movie.html')
+def delete_movie(request, id):
+    # Get the product based on its id
+    media = Movie.objects.get(id=id)
+    # if this is a POST request, we need to delete the form data
+    if request.method == 'POST':
+        media.delete()
+        # after deleting redirect to view_product page
+        return redirect('movie')
+    # if the request is not post, render the page with the product's info
+    return render(request, 'curator/delete_movie.html', {'movie': media})
 
 
-# to be written
-def delete_album(request):
-    return render(request, 'curator/delete_album.html')
+def delete_album(request, id):
+    # Get the product based on its id
+    media = Album.objects.get(id=id)
+    # if this is a POST request, we need to delete the form data
+    if request.method == 'POST':
+        media.delete()
+        # after deleting redirect to view_product page
+        return redirect('album')
+    # if the request is not post, render the page with the product's info
+    return render(request, 'curator/delete_album.html', {'album': media})
 
 
 def update_book(request, id):
     # Get the product based on its id
-    book = Book.objects.get(id=id)
+    media = Book.objects.get(id=id)
     # populate a form instance with data from the data on the database
     # instance=product allows to update the record rather than creating a new record when
     # save method is called
-    form = BookForm(request.POST or None, instance=book)
+    form = BookForm(request.POST or None, instance=media)
     # check whether it's valid:
     if form.is_valid():
         # update the record in the db
@@ -174,11 +196,11 @@ def update_book(request, id):
 
 def update_movie(request, id):
     # Get the product based on its id
-    movie = Movie.objects.get(id=id)
+    media = Movie.objects.get(id=id)
     # populate a form instance with data from the data on the database
     # instance=product allows to update the record rather than creating a new record when
     # save method is called
-    form = MovieForm(request.POST or None, instance=movie)
+    form = MovieForm(request.POST or None, instance=media)
     # check whether it's valid:
     if form.is_valid():
         # update the record in the db
@@ -192,11 +214,11 @@ def update_movie(request, id):
 
 def update_album(request, id):
     # Get the product based on its id
-    album = Album.objects.get(id=id)
+    media = Album.objects.get(id=id)
     # populate a form instance with data from the data on the database
     # instance=product allows to update the record rather than creating a new record when
     # save method is called
-    form = AlbumForm(request.POST or None, instance=album)
+    form = AlbumForm(request.POST or None, instance=media)
     # check whether it's valid:
     if form.is_valid():
         # update the record in the db
