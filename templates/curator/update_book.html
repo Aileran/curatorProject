@@ -1,9 +1,15 @@
 {% extends 'curator/base.html' %}
-
+{% load crispy_forms_filters %}
 {% block title %}
-
+    <title>Book Entry</title>
 {% endblock %}
 
 {% block body %}
+    <h1>Enter Your Book</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit">
+    </form>
 
 {% endblock %}
