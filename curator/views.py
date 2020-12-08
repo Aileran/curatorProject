@@ -103,7 +103,7 @@ def new_movie(request):
         form = MovieForm(request.POST)
         if form.is_valid(): #if valid, save form, update new Movie's "owner" field with username
             new = form.save()
-            Movie.objects.get(new).update(owner=request.user.username)
+            Movie.objects.get(id(new)).update(owner=request.user.username)
             return redirect('movie')
     else:
         form = MovieForm()
