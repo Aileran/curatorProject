@@ -90,7 +90,9 @@ def new_book(request):
     if request.method == 'POST':
         form = BookForm(request.POST)
         if form.is_valid():
-            form.save()
+            media = form.save()
+            media.owner = request.user.username
+            media.save()
             return redirect('book')
     else:
         form = BookForm()
@@ -98,13 +100,13 @@ def new_book(request):
         return render(request, 'curator/update_book.html', context)
 
 
-#experimental
 def new_movie(request):
     if request.method == 'POST':
         form = MovieForm(request.POST)
-        if form.is_valid(): #if valid, save form, update new Movie's "owner" field with username
-            new = form.save()
-            Movie.objects.get(id(new)).update(owner=request.user.username)
+        if form.is_valid(): #if valid, save form, update new media's "owner" field with username, save to db
+            media = form.save()
+            media.owner = request.user.username
+            media.save()
             return redirect('movie')
     else:
         form = MovieForm()
@@ -116,7 +118,9 @@ def new_album(request):
     if request.method == 'POST':
         form = AlbumForm(request.POST)
         if form.is_valid():
-            form.save()
+            media = form.save()
+            media.owner = request.user.username
+            media.save()
             return redirect('album')
     else:
         form = AlbumForm()
@@ -129,21 +133,23 @@ def add_movie(request):
     if request.method == "POST":
         #do something with the entered task
         title = request.POST.get('entry')#not sure if entry is correct for our code here
-        user = User.objects.get(username=request.user.username)
-        Movie.objects.create(title=title, owner=user)
+        Movie.objects.create(title=title, owner=request.user.username)
         return redirect('movie')
     else:
         return render(request, 'curator/index.html')
 
-#below here - to be written
+
+#to be written
 def delete_book(request):
     return render(request, 'curator/delete_book.html')
 
 
+# to be written
 def delete_movie(request):
     return render(request, 'curator/delete_movie.html')
 
 
+# to be written
 def delete_album(request):
     return render(request, 'curator/delete_album.html')
 
