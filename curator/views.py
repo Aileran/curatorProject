@@ -98,6 +98,7 @@ def new_book(request):
         return render(request, 'curator/update_book.html', context)
 
 
+#experimental
 def new_movie(request):
     if request.method == 'POST':
         form = MovieForm(request.POST)
@@ -123,6 +124,7 @@ def new_album(request):
         return render(request, 'curator/update_album.html', context)
 
 
+#experimental
 def add_movie(request):
     if request.method == "POST":
         #do something with the entered task
@@ -133,7 +135,7 @@ def add_movie(request):
     else:
         return render(request, 'curator/index.html')
 
-
+#below here - to be written
 def delete_book(request):
     return render(request, 'curator/delete_book.html')
 
@@ -144,3 +146,15 @@ def delete_movie(request):
 
 def delete_album(request):
     return render(request, 'curator/delete_album.html')
+
+
+def update_book(request):
+    return None
+
+
+def update_movie(request):
+    return None
+
+
+def update_album(request):
+    return None

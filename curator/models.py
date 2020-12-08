@@ -27,6 +27,7 @@ class Movie(models.Model):
     #rating = models.IntegerField(blank=True, choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
     comment = models.TextField(blank=True)
     owner = models.CharField(max_length=150, blank=True)
+    # user = models.ForeignKey(User, default=" ", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
