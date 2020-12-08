@@ -14,5 +14,4 @@ urlpatterns = [
     path('update_book/', views.update_book, name='update_book'),
     path('update_movie/', views.update_movie, name='update_movie'),
     path('update_album/', views.update_album, name='update_album')
-
 ]

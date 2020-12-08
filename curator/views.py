@@ -124,3 +124,12 @@ def update_album(request):
         form = AlbumForm()
         context = {'form': form}
         return render(request, 'curator/update.html', context)
+
+def add_movie(request):
+    if request.method == "POST":
+        #do something with the entered task
+        movie = request.POST.get('entry')
+        Movie.objects.create(title=movie)
+        return redirect('movie')
+    else:
+        return render(request, 'curator/index.html')

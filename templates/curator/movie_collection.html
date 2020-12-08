@@ -10,6 +10,17 @@
         <h1 class="display-4 text-capitalize">Hello, {{  user.username}}!</h1>
         <p class="lead">Welcome to your Movie Collection!</p>
         <hr class="my-4">
+    <form action="{% url 'movie' %}" method="post">
+        {% csrf_token %}
+
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Add Movie" name="movie" aria-label="add movie" aria-describedby="button-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit" name="movie">ADD</button>
+            </div>
+        </div>
+
+    </form>
         <p>These are all the movies you've added.</p>
         {% for Movie in Movies %}
             <h5>Title: {{ Movie.title}}</h5>
