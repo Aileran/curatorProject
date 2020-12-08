@@ -1,5 +1,5 @@
 body{
-    background-color: saddlebrown;
+    background-color: brown;
     padding-top: 50px;
 }
 .asteriskField{
@@ -20,4 +20,12 @@ form > .alert > ul > li{
     color: #fff;
     background-color: #28a745;
     border-color: #285e8e; /*set the color you want here*/
+}
+
+html {
+  background:  no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
