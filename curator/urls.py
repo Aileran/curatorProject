@@ -19,5 +19,5 @@ urlpatterns = [
     path('book/delete_book/<int:id>', views.delete_book, name='delete_book'),
     path('movie/delete_movie/<int:id>', views.delete_movie, name='delete_movie'),
     path('album/delete_album/<int:id>', views.delete_album, name='delete_album'),
-    path('movie/add_movie', views.add_movie, name='add_movie'),
+    # path('movie/add_movie', views.add_movie, name='add_movie'),
 ]

@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
-from .forms import AlbumForm, BookForm, MovieForm, MiniAlbumForm, MiniBookForm, MiniMovieForm
+from .forms import AlbumForm, BookForm, MovieForm
+# from .forms import MiniAlbumForm, MiniBookForm, MiniMovieForm
 from .models import Book, Movie, Album
 from django.contrib.auth.models import User
 # from .forms import UserRegistrationForm
@@ -74,16 +75,20 @@ def book(request):
 def movie(request):
     user = User.objects.get(username=request.user.username)
     user_movies = Movie.objects.filter(owner=user)
-    if request.method == "POST":
-        form = MiniMovieForm(request.POST)
-        if form.is_valid():
-            media = form.save()
-            media.owner = request.user.username
-            media.save()
-            return redirect('movie')
-    else:
-        form = MiniMovieForm()
-        return render(request, 'curator/movie_collection.html', {"Movies": user_movies}, {"form": form})
+    return render(request, 'curator/movie_collection.html', {"Movies": user_movies})
+    # Experimental option below
+    # user = User.objects.get(username=request.user.username)
+    # user_movies = Movie.objects.filter(owner=user)
+    # if request.method == "POST":
+    #     form = MiniMovieForm(request.POST)
+    #     if form.is_valid():
+    #         media = form.save()
+    #         media.owner = request.user.username
+    #         media.save()
+    #         return redirect('movie')
+    # else:
+    #     form = MiniMovieForm()
+    #     return render(request, 'curator/movie_collection.html', {"Movies": user_movies}, {"form": form})
 
 
 def album(request):
