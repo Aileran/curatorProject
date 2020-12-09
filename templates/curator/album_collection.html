@@ -33,8 +33,8 @@
                         <p>Artist: {{Album.artist}}</p>
                         <p>Label: {{Album.label}}</p>
                         <p>Genre: {{Album.genre}}</p>
-                            <a href="{% url 'update_album' Album.id %}"> Update</a>
-                            <a href="{% url 'delete_album' Album.id %}"> Delete</a>
+                            <a class="btn btn-primary btn-sm" href="{% url 'update_album' Album.id %}"> Update</a>
+                            <a class="btn btn-danger btn-sm" href="{% url 'delete_album' Album.id %}"> Delete</a>
                     </div>
                     <div class="col-md-4">
                         <p>Comment: {{ Album.comment }}</p>
