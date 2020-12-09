@@ -26,24 +26,6 @@ class AlbumForm(forms.ModelForm):
         model = Album
         fields = ('title', 'artist', 'label', 'genre', 'comment')
 
-# experimental forms
-# class MiniAlbumForm(forms.ModelForm):
-#     class Meta:
-#         model = Album
-#         fields = ('title', )
-
-
-# class MiniMovieForm(forms.ModelForm):
-#     class Meta:
-#         model = Movie
-#         fields = ('title', )
-
-
-# # small form of Book
-# class MiniBookForm(forms.ModelForm):
-#     class Meta:
-#         model = Book
-#         fields = ('title', )
 
         #####################USER PAGE   VVVVVVVVVVVVVV
 

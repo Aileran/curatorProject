@@ -198,7 +198,7 @@ def update_movie(request, id):
     # Get the product based on its id
     media = Movie.objects.get(id=id)
     # populate a form instance with data from the data on the database
-    # instance=product allows to update the record rather than creating a new record when
+    # instance=media allows to update the record rather than creating a new record when
     # save method is called
     form = MovieForm(request.POST or None, instance=media)
     # check whether it's valid:
@@ -230,19 +230,34 @@ def update_album(request, id):
     return render(request, 'curator/update_album.html', {'form': form})
 
 
-# experimental
-# def add_movie(request):
-#     if request.method == "POST":
-#         form = MiniMovieForm(request.POST)
-#         # do something with the entered task
-#         # not sure if 'entry' is correct for our code here, but haven't tested yet
-#         if form.is_valid():
-#             # title = request.POST.get('entry')
-#             # Movie.objects.create(title=title, owner=request.user.username)
-#             # return redirect('movie')
-#
-#     else:
-#         form = MiniMovieForm()
-#         user = User.objects.get(username=request.user.username)
-#         user_albums = Album.objects.filter(owner=user)
-#         return render(request, 'curator/movie_collection.html', {'form': form}, {'Albums': user_albums})
+def add_movie(request):
+    if request.method == "POST":
+        media = request.POST.get('title')
+        Movie.objects.create(title=media, owner=request.user.username)
+        return redirect('movie')
+    else:
+        user = User.objects.get(username=request.user.username)
+        user_movies = Movie.objects.filter(owner=user)
+        return render(request, 'curator/movie_collection.html', {"Movies": user_movies})
+
+
+def add_book(request):
+    if request.method == "POST":
+        media = request.POST.get('title')
+        Book.objects.create(title=media, owner=request.user.username)
+        return redirect('book')
+    else:
+        user = User.objects.get(username=request.user.username)
+        user_books = Book.objects.filter(owner=user)
+        return render(request, 'curator/book_collection.html', {"Books": user_books})
+
+
+def add_album(request):
+    if request.method == "POST":
+        media = request.POST.get('title')
+        Album.objects.create(title=media, owner=request.user.username)
+        return redirect('album')
+    else:
+        user = User.objects.get(username=request.user.username)
+        user_albums = Album.objects.filter(owner=user)
+        return render(request, 'curator/album_collection.html', {"Albums": user_albums})
