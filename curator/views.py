@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
-from .forms import AlbumForm, BookForm, MovieForm
+from .forms import AlbumForm, BookForm, MovieForm, MiniAlbumForm, MiniBookForm, MiniMovieForm
 from .models import Book, Movie, Album
 from django.contrib.auth.models import User
 # from .forms import UserRegistrationForm
@@ -74,7 +74,16 @@ def book(request):
 def movie(request):
     user = User.objects.get(username=request.user.username)
     user_movies = Movie.objects.filter(owner=user)
-    return render(request, 'curator/movie_collection.html', {"Movies": user_movies})
+    if request.method == "POST":
+        form = MiniMovieForm(request.POST)
+        if form.is_valid():
+            media = form.save()
+            media.owner = request.user.username
+            media.save()
+            return redirect('movie')
+    else:
+        form = MiniMovieForm()
+        return render(request, 'curator/movie_collection.html', {"Movies": user_movies}, {"form": form})
 
 
 def album(request):
@@ -217,12 +226,18 @@ def update_album(request, id):
 
 
 # experimental
-def add_movie(request):
-    if request.method == "POST":
-        # do something with the entered task
-        # not sure if 'entry' is correct for our code here, but haven't tested yet
-        title = request.POST.get('entry')
-        Movie.objects.create(title=title, owner=request.user.username)
-        return redirect('movie')
-    else:
-        return redirect('movie')
+# def add_movie(request):
+#     if request.method == "POST":
+#         form = MiniMovieForm(request.POST)
+#         # do something with the entered task
+#         # not sure if 'entry' is correct for our code here, but haven't tested yet
+#         if form.is_valid():
+#             # title = request.POST.get('entry')
+#             # Movie.objects.create(title=title, owner=request.user.username)
+#             # return redirect('movie')
+#
+#     else:
+#         form = MiniMovieForm()
+#         user = User.objects.get(username=request.user.username)
+#         user_albums = Album.objects.filter(owner=user)
+#         return render(request, 'curator/movie_collection.html', {'form': form}, {'Albums': user_albums})

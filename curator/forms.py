@@ -13,6 +13,13 @@ class BookForm(forms.ModelForm):
         fields = ('title', 'author', 'publisher', 'genre', 'comment')
 
 
+# small form of Book
+class MiniBookForm(forms.ModelForm):
+    class Meta:
+        model = Book
+        fields = 'title'
+
+
 #create form for movie collection
 class MovieForm(forms.ModelForm):
     class Meta:
@@ -20,11 +27,23 @@ class MovieForm(forms.ModelForm):
         fields = ('title', 'director', 'studio', 'genre', 'comment')
 
 
+class MiniMovieForm(forms.ModelForm):
+    class Meta:
+        model = Movie
+        fields = 'title'
+
+
 #create form for album collection
 class AlbumForm(forms.ModelForm):
     class Meta:
         model = Album
         fields = ('title', 'artist', 'label', 'genre', 'comment')
+
+
+class MiniAlbumForm(forms.ModelForm):
+    class Meta:
+        model = Album
+        fields = 'title'
 
 
         #####################USER PAGE   VVVVVVVVVVVVVV
