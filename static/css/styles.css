@@ -22,6 +22,12 @@ form > .alert > ul > li{
     border-color: #285e8e; /*set the color you want here*/
 }
 
-.credits {
+.credits p {
+    text-align: center;
+    font-style: italic;
+    font-size: 125%;
+}
 
+.credits h4 {
+    text-align: center;
 }
