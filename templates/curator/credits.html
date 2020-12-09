@@ -1,5 +1,20 @@
 {% extends 'curator/base.html' %}
+{% load static %}
 
 {% block title %}
 Credits
+{% endblock %}
+
+{% block body %}
+    <div class="container credits">
+        <div class="col-md-4">
+            <img src="{% static 'images/ianprofile.jpg' %}">
+        </div>
+        <div class="col-md-4">
+            <img src="{% static 'images/joshprofile.jpg' %}">
+        </div>
+        <div class="col-md-4">
+            <img src="{% static 'images/yusufprofile.jpg' %}">
+        </div>
+    </div>
 {% endblock %}
