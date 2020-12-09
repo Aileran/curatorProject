@@ -40,10 +40,10 @@ document.addEventListener('keydown', function(e) {
 function activateCheats() {
   // document.body.style.backgroundImage = "url('image/background2.gif')";
   //
-  // let audio = new Audio('audio/Sound6.mp3')
+  //  let audio = new Audio('audio/Sound6.mp3')
   // audio.play();
   //
 
-  //alert("Konami Code Accepted: Meme Engaged");
-  window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+  // alert("Konami Code Accepted: Meme Engaged");
+  // window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
 }
