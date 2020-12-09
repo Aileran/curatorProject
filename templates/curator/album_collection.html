@@ -23,16 +23,24 @@
             </form>
         </div>
 
-        <p>These are all the albums you've added.</p>
+        <p>These are all of your albums!</p>
         {% for Album in Albums %}
-             <h5>Album: {{Album.title}}</h5>
-{#             <p>Date you added: {{Album.year}}</p>#}
-             <p>Artist: {{Album.artist}}</p>
-             <p>Label: {{Album.label}}</p>
-             <p>Genre: {{Album.genre}}</p>
-                <a href="{% url 'update_album' Album.id %}"> Update</a>
-                <a href="{% url 'delete_album' Album.id %}"> Delete</a>
-             <hr>
+              <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h5>Title: {{Album.title}}</h5>
+                        <p>Artist: {{Album.artist}}</p>
+                        <p>Label: {{Album.label}}</p>
+                        <p>Genre: {{Album.genre}}</p>
+                            <a href="{% url 'update_album' Album.id %}"> Update</a>
+                            <a href="{% url 'delete_album' Album.id %}"> Delete</a>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Comment: {{ Album.comment }}</p>
+                    </div>
+                </div>
+                <hr>
+            </div>
         {% endfor %}
         <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
     </div>

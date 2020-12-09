@@ -23,16 +23,24 @@
             </form>
         </div>
 
-        <p>These are all the books you've added.</p>
+        <p>These are all of your books!</p>
         {% for Book in Books %}
-            <h5>Title: {{Book.title}}</h5>
-{#            <p>Date you added: {{Book.year}}</p>#}
-            <p>Author: {{Book.author}}</p>
-            <p>Publisher: {{Book.publisher}}</p>
-            <p>Genre: {{Book.genre}}</p>
-                <a href="{% url 'update_book' Book.id %}"> Update</a>
-                <a href="{% url 'delete_book' Book.id %}"> Delete</a>
-            <hr>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h5>Title: {{Book.title}}</h5>
+                        <p>Author: {{Book.author}}</p>
+                        <p>Publisher: {{Book.publisher}}</p>
+                        <p>Genre: {{Book.genre}}</p>
+                            <a href="{% url 'update_book' Book.id %}"> Update</a>
+                            <a href="{% url 'delete_book' Book.id %}"> Delete</a>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Comment: {{ Book.comment }}</p>
+                    </div>
+                </div>
+                <hr>
+            </div>
         {% endfor %}
         <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
     </div>

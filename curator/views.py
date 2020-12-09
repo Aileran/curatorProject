@@ -261,3 +261,7 @@ def add_album(request):
         user = User.objects.get(username=request.user.username)
         user_albums = Album.objects.filter(owner=user)
         return render(request, 'curator/album_collection.html', {"Albums": user_albums})
+
+
+def credits(request):
+    return render(request, 'curator/credits.html')

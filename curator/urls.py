@@ -21,5 +21,6 @@ urlpatterns = [
     path('album/delete_album/<int:id>', views.delete_album, name='delete_album'),
     path('movie/add_movie', views.add_movie, name='add_movie'),
     path('book/add_book', views.add_book, name='add_book'),
-    path('album/add_album', views.add_album, name='add_album')
+    path('album/add_album', views.add_album, name='add_album'),
+    path('credits/', views.credits, name='credits'),
 ]

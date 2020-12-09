@@ -36,18 +36,24 @@
             </form>
         </div>
 
-        <p>These are all the movies you've added.</p>
+        <p>These are all of your movies!</p>
         {% for Movie in Movies %}
-            <h5>Title: {{ Movie.title}}</h5>
-{#            <p>Date you added: {{ Movie.year}}</p>#}
-            <p>Director: {{ Movie.director}}</p>
-            <p>Studio: {{ Movie.studio}}</p>
-            <p>Genre: {{ Movie.genre}}</p>
-                <a href="{% url 'update_movie' Movie.id %}"> Update</a>
-                <a href="{% url 'delete_movie' Movie.id %}"> Delete</a>
-            <hr>
-
-
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h5>Title: {{ Movie.title}}</h5>
+                        <p>Director: {{ Movie.director}}</p>
+                        <p>Studio: {{ Movie.studio}}</p>
+                        <p>Genre: {{ Movie.genre}}</p>
+                            <a href="{% url 'update_movie' Movie.id %}"> Update</a>
+                            <a href="{% url 'delete_movie' Movie.id %}"> Delete</a>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Comment: {{ Movie.comment }}</p>
+                    </div>
+                </div>
+                <hr>
+            </div>
         {% endfor %}
         <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
     </div>
