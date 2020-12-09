@@ -13,20 +13,31 @@
         <p>2/2 Group Members Recommend!</p>
         <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
     </div>
-    <a class="btn btn-primary btn-lg btn-block" href="{% url 'new_album' %}">Add to Your Album Collection</a>
-    <a href="{% url 'new_album' %}">
-        <img class="img-fluid" alt="book" src={% static 'images/album.jpg' %} >
-    </a>
 
-    <a class="btn btn-primary btn-lg btn-block" href="{% url 'new_book' %}">Add to Your Book Collection</a>
-    <a href="{% url 'new_book' %}">
-        <img class="img-fluid" alt="book" src={% static 'images/book.jpg' %} >
-    </a>
-
-    <a class="btn btn-primary btn-lg btn-block" href="{% url 'new_movie' %}">Add to Your Movie Collection</a>
-    <a href="{% url 'new_movie' %}">
-        <img class="img-fluid" alt="book" src={% static 'images/movie.jpg' %} >
-    </a>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <a class="btn btn-primary btn-lg btn-block" href="{% url 'new_album' %}">Add to Your Album Collection</a>
+                <a href="{% url 'new_album' %}">
+                    <img class="img-fluid" alt="book" src={% static 'images/album.jpg' %} >
+                </a>
+            </div>
+            <br>
+            <div class="col-md-4">
+                <a class="btn btn-primary btn-lg btn-block" href="{% url 'new_book' %}">Add to Your Book Collection</a>
+                <a href="{% url 'new_book' %}">
+                    <img class="img-fluid" alt="book" src={% static 'images/book.jpg' %} >
+                </a>
+            </div>
+            <br>
+            <div class="col-md-4">
+                <a class="btn btn-primary btn-lg btn-block" href="{% url 'new_movie' %}">Add to Your Movie Collection</a>
+                <a href="{% url 'new_movie' %}">
+                    <img class="img-fluid" alt="book" src={% static 'images/movie.jpg' %} >
+                </a>
+            </div>
+        </div>
+    </div>
 
 
 
