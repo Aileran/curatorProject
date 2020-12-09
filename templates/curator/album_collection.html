@@ -15,7 +15,7 @@
             <form action="{%  url 'add_album' %}" method="post">
                 {% csrf_token %}
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Enter Name of Album" name="title" required>
+                    <input type="text" class="form-control" placeholder="Enter Name of Album" name="title" required aria-label="title">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="submit">ADD</button>
                     </div>
