@@ -43,6 +43,7 @@ function activateCheats() {
   // let audio = new Audio('audio/Sound6.mp3')
   // audio.play();
   //
+
   //alert("Konami Code Accepted: Meme Engaged");
   window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
 }

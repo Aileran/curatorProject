@@ -68,32 +68,19 @@ def logout_view(request):
 
 def book(request):
     user = User.objects.get(username=request.user.username)
-    user_books = Book.objects.filter(owner=user)
+    user_books = Book.objects.filter(owner=user).order_by('title')
     return render(request, 'curator/book_collection.html', {"Books": user_books})
 
 
 def movie(request):
     user = User.objects.get(username=request.user.username)
-    user_movies = Movie.objects.filter(owner=user)
+    user_movies = Movie.objects.filter(owner=user).order_by('title')
     return render(request, 'curator/movie_collection.html', {"Movies": user_movies})
-    # Experimental option below
-    # user = User.objects.get(username=request.user.username)
-    # user_movies = Movie.objects.filter(owner=user)
-    # if request.method == "POST":
-    #     form = MiniMovieForm(request.POST)
-    #     if form.is_valid():
-    #         media = form.save()
-    #         media.owner = request.user.username
-    #         media.save()
-    #         return redirect('movie')
-    # else:
-    #     form = MiniMovieForm()
-    #     return render(request, 'curator/movie_collection.html', {"Movies": user_movies}, {"form": form})
 
 
 def album(request):
     user = User.objects.get(username=request.user.username)
-    user_albums = Album.objects.filter(owner=user)
+    user_albums = Album.objects.filter(owner=user).order_by('title')
     return render(request, 'curator/album_collection.html', {"Albums": user_albums})
 
 
@@ -265,3 +252,16 @@ def add_album(request):
 
 def credits(request):
     return render(request, 'curator/credits.html')
+
+
+def movie_sort(request):
+    user = User.objects.get(username=request.user.username)
+    user_movies = Movie.objects.filter(owner=user).order_by('title')
+    return render(request, 'curator/movie_collection.html', {"Movies": user_movies})
+
+def book_sort(request):
+    return render(request, 'curator/book_collection.html')
+
+
+def album_sort(request):
+    return render(request, 'curator/album_collection.html')
