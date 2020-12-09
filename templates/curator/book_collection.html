@@ -32,8 +32,8 @@
                         <p>Author: {{Book.author}}</p>
                         <p>Publisher: {{Book.publisher}}</p>
                         <p>Genre: {{Book.genre}}</p>
-                            <a href="{% url 'update_book' Book.id %}"> Update</a>
-                            <a href="{% url 'delete_book' Book.id %}"> Delete</a>
+                            <a class="btn btn-primary btn-sm" href="{% url 'update_book' Book.id %}"> Update</a>
+                            <a class="btn btn-danger btn-sm" href="{% url 'delete_book' Book.id %}"> Delete</a>
                     </div>
                     <div class="col-md-4">
                         <p>Comment: {{ Book.comment }}</p>

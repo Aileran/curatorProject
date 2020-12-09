@@ -7,7 +7,7 @@
 {% block body %}
 
     <div class="jumbotron">
-        <h1 class="display-4 text-capitalize">Hello, {{  user.username}}!</h1>
+        <h1 class="display-4 text-capitalize">Hello, {{user.username}}!</h1>
         <p class="lead">Welcome to your Movie Collection!</p>
         <hr class="my-4">
 
@@ -34,8 +34,8 @@
                         <p>Director: {{ Movie.director}}</p>
                         <p>Studio: {{ Movie.studio}}</p>
                         <p>Genre: {{ Movie.genre}}</p>
-                            <a href="{% url 'update_movie' Movie.id %}"> Update</a>
-                            <a href="{% url 'delete_movie' Movie.id %}"> Delete</a>
+                            <a class="btn btn-primary btn-sm" href="{% url 'update_movie' Movie.id %}"> Update</a>
+                            <a class="btn btn-danger btn-sm" href="{% url 'delete_movie' Movie.id %}"> Delete</a>
                     </div>
                     <div class="col-md-4">
                         <p>Comment: {{ Movie.comment }}</p>
