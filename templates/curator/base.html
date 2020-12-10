@@ -43,6 +43,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'movie' %}">Movie Collection</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'credits' %}"> Credits</a>
+                </li>
             </ul>
 
             {% if user.is_authenticated %}
@@ -82,7 +85,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="{% static 'js/sound.js' %}"></script>
 <!-- API key for custom image: AIzaSyBDBwFCl013Fc9kZyOJt7_liZjD324dmK0-->
-<button id="Play_Button">Play</button>
 </body>
 
 </html>
