@@ -6,7 +6,7 @@
 
 {% block body %}
     <h1>Enter Your Book Details</h1>
-    <div class="container">
+    <div>
         <form method="post">
             {% csrf_token %}
             {{ form|crispy }}
