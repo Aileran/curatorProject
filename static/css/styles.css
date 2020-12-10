@@ -1,6 +1,11 @@
 body{
-    background-color: brown;
+    background-color: #8a1f1f;
     padding-top: 50px;
+
+}
+
+.card{
+    background-color: #d9b992;
 }
 .asteriskField{
     display: none;
@@ -34,3 +39,7 @@ form > .alert > ul > li{
 
 
 #foobar { display: none }
+
+.jumbotron{
+    background-color: mintcream;
+}
