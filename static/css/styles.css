@@ -1,7 +1,6 @@
 body{
     background-color: #8a1f1f;
     padding-top: 50px;
-
 }
 
 .card{
@@ -17,13 +16,7 @@ form > .alert > ul > li{
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
     color: #fff;
-    background-color: #28a745;
-    border-color: #285e8e; /*set the color you want here*/
-}
-
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
-    color: #fff;
-    background-color: #28a745;
+    background-color: palegoldenrod;
     border-color: #285e8e; /*set the color you want here*/
 }
 
@@ -37,9 +30,11 @@ form > .alert > ul > li{
     text-align: center;
 }
 
-
-#foobar { display: none }
-
 .jumbotron{
     background-color: mintcream;
+}
+
+.btn-primary{
+    background-color: orangered;
+    border-color: blanchedalmond;
 }
