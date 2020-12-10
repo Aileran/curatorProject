@@ -254,6 +254,7 @@ def credits(request):
     return render(request, 'curator/credits.html')
 
 
+
 def movie_sort(request):
     user = User.objects.get(username=request.user.username)
     user_movies = Movie.objects.filter(owner=user).order_by('title')

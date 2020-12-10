@@ -31,3 +31,6 @@ form > .alert > ul > li{
 .credits h4 {
     text-align: center;
 }
+
+
+#foobar { display: none }

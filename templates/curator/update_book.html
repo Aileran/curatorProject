@@ -10,7 +10,7 @@
         <form method="post">
             {% csrf_token %}
             {{ form|crispy }}
-            <input class="btn btn-primary btn-lg" type="submit" value="Enter">
+            <input id="Play_Button" class="btn btn-primary btn-lg" type="submit" value="Enter">
             <a class="btn btn-primary btn-lg" href="{% url 'book' %}" role="button">Go back</a>
         </form>
     </div>
